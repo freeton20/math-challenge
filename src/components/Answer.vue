@@ -13,13 +13,16 @@
   </span>
 </template>
 <script>
-export default {
-  data(){
-    return {
-      answer: null
-    }
-  },  
+export default { 
   computed: {
+    answer:{
+      set(value){
+        this.$store.dispatch("saveAnswer", value)
+      },
+      get(){
+        return this.$store.getters.getAnswer;
+      }
+    },
     showAnswer() {
       return this.$store.getters.getShowAnswer;
     },
@@ -29,8 +32,7 @@ export default {
   },
   methods: {
     checkAnswer() {      
-      if (eval(this.$store.getters.getQuestion) == this.answer){
-        this.$store.dispatch('changeQuestionColor', 'green');        
+      if (eval(this.$store.getters.getQuestion) == this.$store.getters.getAnswer){     
         this.$store.dispatch('changeAnswerColor', 'green');        
       }
     },

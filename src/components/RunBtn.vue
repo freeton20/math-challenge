@@ -16,6 +16,7 @@ export default {
       this.$store.dispatch("changeQuestion");
       this.$store.dispatch("changeShowRules", false);
       this.$store.dispatch("changeShowAnswer", true);
+      this.$store.dispatch("saveAnswer",'');
     },
   },
 };

@@ -7,12 +7,19 @@
 </template>
 <script>
 import Answer from "./Answer.vue";
-import { mapGetters } from "vuex";
 export default {
-  computed: mapGetters({
-    question: "getQuestion",
-    questionColor: "getQuestionColor",
-  }),
+  computed: {
+    question() {
+      return this.$store.getters.getQuestion;
+    },
+    questionColor() {
+      if(this.$store.getters.getAnswer == eval(this.$store.getters.getQuestion)){
+        return 'green';
+      }else{
+        return 'black';
+      }
+    },
+  },
   components: {
     Answer,
   },
