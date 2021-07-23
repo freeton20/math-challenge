@@ -13,11 +13,7 @@ export default {
       return this.$store.getters.getQuestion;
     },
     questionColor() {
-      if(this.$store.getters.getAnswer == eval(this.$store.getters.getQuestion)){
-        return 'green';
-      }else{
-        return 'black';
-      }
+      return this.$store.getters.getQuestionColor;
     },
   },
   components: {

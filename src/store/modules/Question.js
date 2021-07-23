@@ -13,7 +13,9 @@ export default {
     },
     mutations: {
         updateQuestion(state){
-            state.question = `${(Math.floor(Math.random() * 100)+1)} + ${(Math.floor(Math.random() * 100)+1)}`;
+            let signs = ["+","-"];
+            let sign = signs[Math.floor(Math.random()*signs.length)];
+            state.question = `${(Math.floor(Math.random() * 100)+1)} ${sign} ${(Math.floor(Math.random() * 100)+1)}`;
         },
         updateQuestionColor(state, color){
             state.questionColor = color;

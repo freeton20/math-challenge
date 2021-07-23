@@ -1,6 +1,6 @@
 <template>
   <div class="text-center mt-4">
-    <b-button id="runBtn" @click="run" variant="outline-success">{{
+    <b-button id="runBtn" @click="run" variant="outline-success" :disabled="isDisabled">{{
       btnName
     }}</b-button>
   </div>
@@ -9,14 +9,10 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  computed: mapGetters({ btnName: "getBtnName" }),
+  computed: mapGetters({ btnName: "getBtnName", isDisabled: "isDisabled" }),
   methods: {
     run() {
-      this.$store.dispatch("changeBtnName");
-      this.$store.dispatch("changeQuestion");
-      this.$store.dispatch("changeShowRules", false);
-      this.$store.dispatch("changeShowAnswer", true);
-      this.$store.dispatch("saveAnswer",'');
+      this.$store.dispatch("run");
     },
   },
 };
