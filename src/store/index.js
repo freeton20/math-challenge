@@ -13,7 +13,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     actions: {
-        run() {
+        run() {                       
+            this.dispatch("addToCounter", true);           
+            if(this.getters.getCounter > 1){
+                this.dispatch("stop");
+                return;
+            }
+            this.dispatch("changeQuestionVisibility", true);
             this.dispatch("changeBtnName");
             this.dispatch("changeBtnState", true);
             this.dispatch("changeQuestion");
@@ -22,20 +28,28 @@ export default new Vuex.Store({
             this.dispatch("saveAnswer", '');
             this.dispatch("changeAnswerColor", "black");
             this.dispatch("changeQuestionColor", "black");
-            this.dispatch("changeShowCounter", true);
-            this.dispatch("addToCounter", true);
+            this.dispatch("changeShowCounter", true);             
             this.dispatch("changeResetBtnVisibility", true);
             this.dispatch("changeTimerVisibility", true);
             this.dispatch("runTimer");
         },
         reset() {
+            this.dispatch("resetCounter");
+            this.dispatch("addToCounter", true);            
+            this.dispatch("changeQuestionVisibility", true);
             this.dispatch("changeQuestion");
             this.dispatch("saveAnswer", '');
             this.dispatch("changeAnswerColor", "black");
-            this.dispatch("changeQuestionColor", "black");
-            this.dispatch("resetCounter");
+            this.dispatch("changeQuestionColor", "black");            
             this.dispatch("clearTimer");
             this.dispatch("runTimer");
+        },
+        stop(){
+            this.dispatch("changeBtnName", "Start");
+            this.dispatch("changeQuestionVisibility", false);
+            this.dispatch("resetCounter");            
+            this.dispatch("stopTimer");
+            this.dispatch("changeShowCounter", false);
         }
     },
     modules: {

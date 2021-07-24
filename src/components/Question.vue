@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="questionVisibility">
     <div :style="'color:' + questionColor" class="text-center h1">
       {{ question }} <answer />
     </div>
@@ -15,6 +15,9 @@ export default {
     questionColor() {
       return this.$store.getters.getQuestionColor;
     },
+    questionVisibility() {
+      return this.$store.getters.getQuestionVisibility;
+    }
   },
   components: {
     Answer,

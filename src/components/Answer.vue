@@ -39,19 +39,20 @@ export default {
         this.$store.dispatch("changeAnswerColor", "green");
         this.$store.dispatch("changeQuestionColor", "green");
         this.$store.dispatch("changeBtnState", false);
-      }else{
+      } else {
         this.$store.dispatch("changeAnswerColor", "black");
         this.$store.dispatch("changeQuestionColor", "black");
         this.$store.dispatch("changeBtnState", true);
       }
     },
     enterPressed() {
-       if (
-        eval(this.$store.getters.getQuestion) !== eval(this.$store.getters.getAnswer)
+      if (
+        eval(this.$store.getters.getQuestion) !==
+        eval(this.$store.getters.getAnswer)
       ) {
         this.$store.dispatch("changeAnswerColor", "red");
         this.$store.dispatch("changeQuestionColor", "red");
-      }else{
+      } else {
         this.$store.dispatch("run");
       }
     },

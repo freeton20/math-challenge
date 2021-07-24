@@ -19,7 +19,7 @@ export default {
             state.counter++;
         },
         reset(state){
-            state.counter = 1;
+            state.counter = 0;
         }
     },
     actions: {

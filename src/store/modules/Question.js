@@ -1,7 +1,8 @@
 export default {
     state:{
         question: '',
-        questionColor: 'black'        
+        questionColor: 'black',
+        questionVisibility: true,        
     },
     getters: {
         getQuestion(state){
@@ -9,6 +10,9 @@ export default {
         },
         getQuestionColor(state){
             return state.questionColor
+        },
+        getQuestionVisibility(state){
+            return state.questionVisibility;
         }
     },
     mutations: {
@@ -19,6 +23,9 @@ export default {
         },
         updateQuestionColor(state, color){
             state.questionColor = color;
+        },
+        changeQuestionVisibility(state, newQuestionVisibility){
+            state.questionVisibility = newQuestionVisibility;
         }
     },
     actions:{
@@ -27,6 +34,9 @@ export default {
         },
         changeQuestionColor({commit}, color){
             commit('updateQuestionColor', color);
+        },
+        changeQuestionVisibility({ commit }, newQuestionVisibility){
+            commit('changeQuestionVisibility', newQuestionVisibility);
         }
     }
 }
