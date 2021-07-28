@@ -5,8 +5,9 @@
     <question />
     <timer />
     <div class="d-flex flex-row justify-content-center">
-      <run-btn /> <reset />
-    </div>    
+      <run-btn /> <reset />   <save-result/> 
+    </div>
+    <Leaderboard/>
   </div>
 </template>
 
@@ -17,14 +18,11 @@ import Question from "./components/Question.vue";
 import Counter from "./components/Counter.vue";
 import Reset from "./components/Reset.vue";
 import Timer from "./components/Timer.vue";
+import SaveResult from "./components/SaveResult.vue";
+import Leaderboard from "./components/LedearBoard.vue";
 
 export default {
   name: "App",
-  components: { TitleRules, RunBtn, Question, Counter, Reset, Timer },
+  components: { TitleRules, RunBtn, Question, Counter, Reset, Timer, SaveResult, Leaderboard },
 };
 </script>
-
-<style>
-#app {
-}
-</style>

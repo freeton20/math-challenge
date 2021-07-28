@@ -1,6 +1,6 @@
 <template>
     <div v-if="showCounter" class="text-center h4">
-        Question: {{counter}}
+        Question: {{counter}} of {{totalQuestions}}
     </div>
 </template>
 <script lang="ts">
@@ -12,6 +12,9 @@ export default {
         },
         showCounter() {
             return this.$store.getters.getShowCounter;
+        },
+        totalQuestions(){
+            return this.$store.getters.getTotalQuestions;
         }
     },
 }

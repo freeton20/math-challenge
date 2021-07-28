@@ -1,7 +1,8 @@
 export default {
     state: {
         counter: 0,
-        showCounter: false
+        showCounter: false,
+        totalQuestions: 1      
     },
     getters: {
         getCounter(state) {
@@ -9,6 +10,9 @@ export default {
         },
         getShowCounter(state) {
             return state.showCounter;
+        },
+        getTotalQuestions(state){
+            return state.totalQuestions;
         }
     },
     mutations: {

@@ -1,6 +1,6 @@
 <template>
   <div v-if="timerVisibility" class="text-center mt-3 mb-3">
-    {{ timer }}
+   Time: {{ timer }}
   </div>
 </template>
 

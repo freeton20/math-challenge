@@ -2,7 +2,7 @@ export default {
     state:{
         question: '',
         questionColor: 'black',
-        questionVisibility: true,        
+        questionVisibility: true,      
     },
     getters: {
         getQuestion(state){
