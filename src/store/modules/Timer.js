@@ -36,7 +36,7 @@ export default {
         },
         runTimer({ commit, getters }) {
             if (getters.getTimerId == null) {
-                commit("setNewTime",0);
+                commit("setNewTime", 0);
                 let timerId = setInterval(function (getters) {
                     let newTime = getters.getTimer + 1;
                     commit("setNewTime", newTime);
@@ -44,9 +44,9 @@ export default {
                 commit("setTimerId", timerId);
             }
         },
-        stopTimer({ commit, getters }){
+        stopTimer({ commit, getters }) {
             clearInterval(getters.getTimerId);
-            commit('setTimerId', null);            
+            commit('setTimerId', null);
         },
         clearTimer({ commit, getters }) {
             clearInterval(getters.getTimerId);

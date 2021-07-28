@@ -1,41 +1,41 @@
 export default {
-    state:{
+    state: {
         question: '',
         questionColor: 'black',
-        questionVisibility: true,      
+        questionVisibility: true,
     },
     getters: {
-        getQuestion(state){
+        getQuestion(state) {
             return state.question;
         },
-        getQuestionColor(state){
+        getQuestionColor(state) {
             return state.questionColor
         },
-        getQuestionVisibility(state){
+        getQuestionVisibility(state) {
             return state.questionVisibility;
         }
     },
     mutations: {
-        updateQuestion(state){
-            let signs = ["+","-"];
-            let sign = signs[Math.floor(Math.random()*signs.length)];
-            state.question = `${(Math.floor(Math.random() * 100)+1)} ${sign} ${(Math.floor(Math.random() * 100)+1)}`;
+        updateQuestion(state) {
+            let signs = ["+", "-"];
+            let sign = signs[Math.floor(Math.random() * signs.length)];
+            state.question = `${(Math.floor(Math.random() * 100) + 1)} ${sign} ${(Math.floor(Math.random() * 100) + 1)}`;
         },
-        updateQuestionColor(state, color){
+        updateQuestionColor(state, color) {
             state.questionColor = color;
         },
-        changeQuestionVisibility(state, newQuestionVisibility){
+        changeQuestionVisibility(state, newQuestionVisibility) {
             state.questionVisibility = newQuestionVisibility;
         }
     },
-    actions:{
-        changeQuestion({commit}){
+    actions: {
+        changeQuestion({ commit }) {
             commit('updateQuestion');
         },
-        changeQuestionColor({commit}, color){
+        changeQuestionColor({ commit }, color) {
             commit('updateQuestionColor', color);
         },
-        changeQuestionVisibility({ commit }, newQuestionVisibility){
+        changeQuestionVisibility({ commit }, newQuestionVisibility) {
             commit('changeQuestionVisibility', newQuestionVisibility);
         }
     }

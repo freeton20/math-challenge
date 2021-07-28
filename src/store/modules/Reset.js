@@ -2,18 +2,18 @@ export default {
     state: {
         resetVisibilityState: false
     },
-    getters: {        
-        isResetShowed(state){
+    getters: {
+        isResetShowed(state) {
             return state.resetVisibilityState;
         }
     },
-    mutations: {        
-        showHideReset(state, newBtnVisibilityState){
+    mutations: {
+        showHideReset(state, newBtnVisibilityState) {
             state.resetVisibilityState = newBtnVisibilityState;
         }
     },
-    actions: {       
-        changeResetBtnVisibility({ commit }, newBtnVisibilityState){
+    actions: {
+        changeResetBtnVisibility({ commit }, newBtnVisibilityState) {
             commit("showHideReset", newBtnVisibilityState);
         }
     }

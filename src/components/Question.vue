@@ -17,7 +17,7 @@ export default {
     },
     questionVisibility() {
       return this.$store.getters.getQuestionVisibility;
-    }
+    },
   },
   components: {
     Answer,

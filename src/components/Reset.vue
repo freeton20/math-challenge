@@ -10,10 +10,10 @@ export default {
       return this.$store.getters.isResetShowed;
     },
   },
-  methods:{
-      reset() {
-          this.$store.dispatch("reset");
-      }
-  }
+  methods: {
+    reset() {
+      this.$store.dispatch("reset");
+    },
+  },
 };
 </script>

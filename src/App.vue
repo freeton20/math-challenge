@@ -5,9 +5,9 @@
     <question />
     <timer />
     <div class="d-flex flex-row justify-content-center">
-      <run-btn /> <reset />   <save-result/> 
+      <run-btn /> <reset /> <save-result />
     </div>
-    <Leaderboard/>
+    <Leaderboard />
   </div>
 </template>
 
@@ -23,6 +23,15 @@ import Leaderboard from "./components/LedearBoard.vue";
 
 export default {
   name: "App",
-  components: { TitleRules, RunBtn, Question, Counter, Reset, Timer, SaveResult, Leaderboard },
+  components: {
+    TitleRules,
+    RunBtn,
+    Question,
+    Counter,
+    Reset,
+    Timer,
+    SaveResult,
+    Leaderboard,
+  },
 };
 </script>

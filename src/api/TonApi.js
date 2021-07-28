@@ -33,7 +33,7 @@ async function getPayload(timer) {
     return response.body;
 }
 
-async function initExtraton(timer) {    
+async function initExtraton(timer) {
     const provider = new freeton.providers.ExtensionProvider(window.freeton);
     const signer = await provider.getSigner();
     const wallet = signer.getWallet()

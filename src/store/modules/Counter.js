@@ -2,7 +2,7 @@ export default {
     state: {
         counter: 0,
         showCounter: false,
-        totalQuestions: 1      
+        totalQuestions: 1
     },
     getters: {
         getCounter(state) {
@@ -11,7 +11,7 @@ export default {
         getShowCounter(state) {
             return state.showCounter;
         },
-        getTotalQuestions(state){
+        getTotalQuestions(state) {
             return state.totalQuestions;
         }
     },
@@ -19,10 +19,10 @@ export default {
         updateShowCounter(state, ifShow) {
             state.showCounter = ifShow;
         },
-        add(state){
+        add(state) {
             state.counter++;
         },
-        reset(state){
+        reset(state) {
             state.counter = 0;
         }
     },
@@ -30,10 +30,10 @@ export default {
         changeShowCounter({ commit }, ifShow) {
             commit("updateShowCounter", ifShow)
         },
-        addToCounter({ commit }){
+        addToCounter({ commit }) {
             commit("add");
         },
-        resetCounter({ commit }){
+        resetCounter({ commit }) {
             commit("reset");
         }
     }

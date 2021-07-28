@@ -1,11 +1,11 @@
 <template>
   <div v-if="timerVisibility" class="text-center mt-3 mb-3">
-   Time: {{ timer }}
+    Time: {{ timer }}
   </div>
 </template>
 
 <script>
-export default {  
+export default {
   computed: {
     timerVisibility() {
       return this.$store.getters.getTimerVisibility;
