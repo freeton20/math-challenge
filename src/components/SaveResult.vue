@@ -38,6 +38,11 @@ export default {
       this.$store.dispatch("changeSaveButtonDisableEnableState", true);
     },
     runExtraton() {
+      if (window.freeton == undefined) {
+        console.log("dialog");
+        this.$store.dispatch("setNoExtVisibility", true);
+        return;
+      }
       this.$store.dispatch("runExtraton", this.$store.getters.getTimer);
     },
   },
@@ -48,9 +53,9 @@ export default {
     getSaveButtonVisibility() {
       return this.$store.getters.getSaveButtonVisibility;
     },
-    isDisabled(){
+    isDisabled() {
       return this.$store.getters.isDisabledSaveButton;
-    }
+    },
   },
 };
 </script>

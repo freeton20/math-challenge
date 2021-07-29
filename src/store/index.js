@@ -9,6 +9,7 @@ import Counter from './modules/Counter';
 import Reset from './modules/Reset';
 import Timer from './modules/Timer';
 import SaveResult from './modules/SaveResult';
+import Modal from './modules/Modal';
 
 Vue.use(Vuex)
 
@@ -55,6 +56,6 @@ export default new Vuex.Store({
         }
     },
     modules: {
-        Title, RunBtn, Reset, Question, Answer, Counter, Timer, SaveResult
+        Title, RunBtn, Reset, Question, Answer, Counter, Timer, SaveResult, Modal
     }
 })

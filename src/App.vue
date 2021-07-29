@@ -8,6 +8,7 @@
       <run-btn /> <reset /> <save-result />
     </div>
     <Leaderboard />
+    <Modal/>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import Reset from "./components/Reset.vue";
 import Timer from "./components/Timer.vue";
 import SaveResult from "./components/SaveResult.vue";
 import Leaderboard from "./components/LedearBoard.vue";
+import Modal from './components/Modal.vue';
 
 export default {
   name: "App",
@@ -32,6 +34,9 @@ export default {
     Timer,
     SaveResult,
     Leaderboard,
+    Modal
   },
 };
 </script>
+,
+    ExtratonNotAvailable

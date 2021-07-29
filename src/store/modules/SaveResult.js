@@ -50,7 +50,7 @@ export default {
                     time: `${minuts}:${seconds}`
                 }
             })
-            
+
             state.users = users;
         },
         changeSaveButtonVisibility(state, newVisibility) {
@@ -61,7 +61,7 @@ export default {
         }
     },
     actions: {
-        async runExtraton({ commit }, timer) {
+        async runExtraton({ commit }, timer) {                 
             commit("changeSpinnerVisibility", true);
             const response = await initExtraton(timer);
             if (response) {
