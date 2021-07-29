@@ -5,11 +5,13 @@ module.exports = {
         plugins: [
             new CopyPlugin(
                 [
-                    {from: 'node_modules/@tonclient/lib-web/tonclient.wasm',
-                    to: './'}
+                    {
+                        from: 'node_modules/@tonclient/lib-web/tonclient.wasm',
+                        to: './'
+                    }
                 ],
             )
         ]
-    },    
-    publicPath:process.env.NODE_ENV === 'production'? './math-challenge/': '/'       
+    },
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
 }

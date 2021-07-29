@@ -3,7 +3,7 @@ import { libWeb, libWebSetup } from "@tonclient/lib-web";
 import freeton from "freeton";
 import abi from "./contracts/Db.abi.json";
 libWebSetup({
-    binaryURL: "/tonclient.wasm",
+    binaryURL: "./tonclient.wasm",
 });
 TonClient.useBinaryLibrary(libWeb);
 
