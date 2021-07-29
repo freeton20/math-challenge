@@ -2,7 +2,7 @@ export default {
     state: {
         counter: 0,
         showCounter: false,
-        totalQuestions: 1
+        totalQuestions: 10
     },
     getters: {
         getCounter(state) {
