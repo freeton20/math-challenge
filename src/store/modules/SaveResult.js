@@ -43,9 +43,11 @@ export default {
     actions: {
         async runExtraton({ commit }) {
             commit("changeSpinnerVisibility", true);
-            await initExtraton(777);       
-            const users = await getUsers();
-            commit("updateUsers", users);
+            const response = await initExtraton(777);
+            if (response !== false) {
+                const users = await getUsers();
+                commit("updateUsers", users);
+            }
             commit("changeSpinnerVisibility", false);
         },
         async getUsers({ commit }) {

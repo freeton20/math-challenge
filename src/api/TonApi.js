@@ -34,7 +34,8 @@ async function getPayload(timer) {
 }
 
 async function initExtraton(timer) {
-    const provider = new freeton.providers.ExtensionProvider(window.freeton);
+    try{
+        const provider = new freeton.providers.ExtensionProvider(window.freeton);
     const signer = await provider.getSigner();
     const wallet = signer.getWallet()
     const payload = await getPayload(timer)
@@ -45,6 +46,10 @@ async function initExtraton(timer) {
     await contractMessageProcessing.wait();
 
     return contractMessageProcessing.txid;
+    }catch(e){
+        console.log("response is: "+ JSON.stringify(e, null, 4));
+        return false;
+    }    
 }
 
 async function getUsers() {
