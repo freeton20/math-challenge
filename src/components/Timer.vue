@@ -14,8 +14,9 @@ export default {
       let currentTime = this.$store.getters.getTimer;
       let seconds = currentTime % 60; // Получаем секунды
       seconds = seconds < 10 ? "0" + seconds : seconds;
-      let minuts = (currentTime / 60) % 60; // Получаем минуты
-      return `${Math.trunc(minuts)}:${seconds}`;
+      let minuts = Math.trunc((currentTime / 60) % 60); // Получаем минуты
+      minuts = minuts < 10 ? "0" + minuts : minuts;
+      return `${minuts}:${seconds}`;
     },
   },
 };

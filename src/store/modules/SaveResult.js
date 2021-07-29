@@ -24,9 +24,14 @@ export default {
         updateUsers(state, data) {
             let users = [];
             for (let i = 0; i < data.value0.length; i++) {
+                let seconds = data.value1[i] % 60; // Получаем секунды
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                let minuts = Math.trunc((data.value1[i] / 60) % 60); // Получаем минуты
+                minuts = minuts < 10 ? "0" + minuts : minuts;
+                data.value1[i] = `${minuts}:${seconds}`;
                 users[i] = {
                     address: data.value0[i],
-                    score: data.value1[i]
+                    time: data.value1[i]
                 }
             }
             state.users = users;
@@ -38,7 +43,7 @@ export default {
     actions: {
         async runExtraton({ commit }) {
             commit("changeSpinnerVisibility", true);
-            await initExtraton(777);
+            await initExtraton(777);       
             const users = await getUsers();
             commit("updateUsers", users);
             commit("changeSpinnerVisibility", false);
