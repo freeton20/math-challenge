@@ -45,7 +45,7 @@ async function initExtraton(timer) {
 
     await contractMessageProcessing.wait();
 
-    return contractMessageProcessing.txid;
+    return true;
     }catch(e){
         console.log("response is: "+ JSON.stringify(e, null, 4));
         return false;

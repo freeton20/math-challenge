@@ -6,6 +6,7 @@
   >
     <button
       v-show="getSaveButtonVisibility"
+      :disabled="isDisabled"
       v-b-tooltip.manual
       title="Save result to blockchain"
       class="btn btn-outline-secondary"
@@ -34,9 +35,10 @@ export default {
     },
     hideTooltip() {
       this.$root.$emit("bv::hide::tooltip");
+      this.$store.dispatch("changeSaveButtonDisableEnableState", true);
     },
     runExtraton() {
-      this.$store.dispatch("runExtraton");
+      this.$store.dispatch("runExtraton", this.$store.getters.getTimer);
     },
   },
   computed: {
@@ -46,6 +48,9 @@ export default {
     getSaveButtonVisibility() {
       return this.$store.getters.getSaveButtonVisibility;
     },
+    isDisabled(){
+      return this.$store.getters.isDisabledSaveButton;
+    }
   },
 };
 </script>

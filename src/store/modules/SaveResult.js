@@ -4,7 +4,8 @@ export default {
     state: {
         spinner: false,
         users: [],
-        saveButtonVisibility: false
+        saveButtonVisibility: false,
+        disabled: false
     },
     getters: {
         getSpinner(state) {
@@ -15,6 +16,9 @@ export default {
         },
         getSaveButtonVisibility(state) {
             return state.saveButtonVisibility;
+        },
+        isDisabledSaveButton(state) {
+            return state.disabled;
         }
     },
     mutations: {
@@ -38,23 +42,29 @@ export default {
         },
         changeSaveButtonVisibility(state, newVisibility) {
             state.saveButtonVisibility = newVisibility;
+        },
+        disableEnableSaveButton(state, newBtnState) {
+            state.disabled = newBtnState;
         }
     },
     actions: {
-        async runExtraton({ commit }) {
+        async runExtraton({ commit }, timer) {
             commit("changeSpinnerVisibility", true);
-            const response = await initExtraton(777);
-            if (response !== false) {
-                const users = await getUsers();
-                commit("updateUsers", users);
+            const response = await initExtraton(timer);           
+            if (response) {                           
+                commit("updateUsers", await getUsers());
             }
             commit("changeSpinnerVisibility", false);
+            commit("disableEnableSaveButton", false);
         },
         async getUsers({ commit }) {
             commit("updateUsers", await getUsers());
         },
         setSaveButtonVisibility({ commit }, newVisibility) {
             commit("changeSaveButtonVisibility", newVisibility);
+        },
+        changeSaveButtonDisableEnableState({ commit }, newBtnState) {
+            commit("disableEnableSaveButton", newBtnState);
         }
     }
 }
