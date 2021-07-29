@@ -37,13 +37,13 @@ export default {
       this.$root.$emit("bv::hide::tooltip");
       this.$store.dispatch("changeSaveButtonDisableEnableState", true);
     },
-    runExtraton() {
+    async runExtraton() {
       if (window.freeton == undefined) {
-        console.log("dialog");
         this.$store.dispatch("setNoExtVisibility", true);
         return;
       }
-      this.$store.dispatch("runExtraton", this.$store.getters.getTimer);
+      await this.$store.dispatch("runExtraton", this.$store.getters.getTimer);
+      await this.$store.dispatch("getUsers");
     },
   },
   computed: {

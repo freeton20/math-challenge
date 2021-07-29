@@ -34,6 +34,7 @@ export default new Vuex.Store({
             this.dispatch("changeResetBtnVisibility", true);
             this.dispatch("changeTimerVisibility", true);
             this.dispatch("runTimer");
+            this.dispatch("setSaveButtonVisibility", false);
         },
         reset() {
             this.dispatch("resetCounter");
